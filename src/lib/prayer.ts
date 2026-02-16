@@ -1,5 +1,7 @@
 import { PrayerApiResponse } from "./types";
 
+const IFB_METHOD_ID = 16;
+
 const CACHE = new Map<string, { data: PrayerApiResponse; timestamp: number }>();
 const CACHE_TTL = 60 * 60 * 1000; // 1 hour
 
@@ -12,11 +14,34 @@ function getCacheKey(
   return `${lat.toFixed(4)}_${lng.toFixed(4)}_${date}_${method}`;
 }
 
+/**
+ * Build the AlAdhan API URL.
+ * For Islamic Foundation Bangladesh (method 16) we use method=99 (Custom)
+ * with Fajr 18°, Isha 18°, and school=1 (Hanafi Asr calculation).
+ */
+function buildApiUrl(
+  latitude: number,
+  longitude: number,
+  date: string,
+  method: number,
+): string {
+  const base = `https://api.aladhan.com/v1/timings/${date}?latitude=${latitude}&longitude=${longitude}`;
+
+  if (method === IFB_METHOD_ID) {
+    // Custom method matching Islamic Foundation Bangladesh:
+    // Fajr angle = 18°, no Maghrib adjustment, Isha angle = 18°
+    // school = 1 → Hanafi (Asr shadow factor = 2)
+    return `${base}&method=99&methodSettings=18,null,18&school=1`;
+  }
+
+  return `${base}&method=${method}`;
+}
+
 export async function fetchPrayerTimes(
   latitude: number,
   longitude: number,
   date: string,
-  method: number = 2,
+  method: number = 16,
 ): Promise<PrayerApiResponse> {
   const cacheKey = getCacheKey(latitude, longitude, date, method);
 
@@ -25,7 +50,7 @@ export async function fetchPrayerTimes(
     return cached.data;
   }
 
-  const url = `https://api.aladhan.com/v1/timings/${date}?latitude=${latitude}&longitude=${longitude}&method=${method}`;
+  const url = buildApiUrl(latitude, longitude, date, method);
 
   const response = await fetch(url, {
     next: { revalidate: 3600 },
@@ -136,6 +161,14 @@ export async function fetchPrayerTimes(
       },
     },
   };
+
+  // Label the method correctly for Islamic Foundation Bangladesh
+  if (method === IFB_METHOD_ID) {
+    result.meta.method = {
+      id: IFB_METHOD_ID,
+      name: "Dhaka, Bangladesh",
+    };
+  }
 
   CACHE.set(cacheKey, { data: result, timestamp: Date.now() });
 

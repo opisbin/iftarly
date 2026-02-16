@@ -17,7 +17,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import Image from "next/image";
-import { Calendar, Moon } from "lucide-react";
+import { Calendar, Download, Moon } from "lucide-react";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { LanguageToggle } from "@/components/LanguageToggle";
 import { useLanguage } from "@/components/LanguageProvider";
@@ -185,11 +185,31 @@ export default function RamadanTimesClient() {
       </div>
 
       {/* ─── Method Selector ──────────────────────────── */}
-      <Card className="mb-8 border-border/60 bg-card/80 backdrop-blur-sm">
+      <Card className="mb-4 border-border/60 bg-card/80 backdrop-blur-sm">
         <CardContent className="p-6">
           <MethodSelector value={method} onChange={setMethod} />
         </CardContent>
       </Card>
+
+      {/* ─── Disclaimer ───────────────────────────────── */}
+      <div className="mb-8 rounded-xl border border-amber-500/30 bg-amber-500/5 px-4 py-4 text-center space-y-3">
+        <p className="text-xs leading-relaxed text-amber-600 dark:text-amber-400">
+          ⚠️ {t("apiDisclaimer")}
+        </p>
+        <div>
+          <p className="text-xs text-muted-foreground mb-2">
+            {t("ifbDownloadNote")}
+          </p>
+          <a
+            href="/ibf.pdf"
+            download="Islamic-Foundation-Bangladesh-Schedule.pdf"
+            className="inline-flex items-center gap-2 rounded-lg bg-primary/10 border border-primary/30 px-4 py-2 text-xs font-semibold text-primary hover:bg-primary/20 transition-colors"
+          >
+            <Download className="size-3.5" />
+            {t("ifbDownloadBtn")}
+          </a>
+        </div>
+      </div>
 
       {/* ─── Footer ───────────────────────────────────── */}
       <footer className="text-center text-xs text-muted-foreground pt-4 border-t border-border/50">

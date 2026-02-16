@@ -48,7 +48,7 @@ export default function DatePicker({
           focus:outline-none focus:ring-2 focus:ring-primary/50
           focus:border-primary transition-all cursor-pointer
           hover:border-muted-foreground/40
-          [color-scheme:dark]
+          dark:[color-scheme:dark] [color-scheme:light]
         "
       />
 

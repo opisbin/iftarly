@@ -49,6 +49,20 @@ export const translations = {
   calculationMethod: { en: "Calculation Method", bn: "হিসাব পদ্ধতি" },
   selectMethod: { en: "Select method", bn: "পদ্ধতি নির্বাচন" },
 
+  // Disclaimer
+  apiDisclaimer: {
+    en: "Note: Prayer times are sourced internationally from the AlAdhan API and may slightly differ from the official Islamic Foundation Bangladesh schedule.",
+    bn: "দ্রষ্টব্য: নামাযের সময়গুলো আন্তর্জাতিকভাবে AlAdhan API থেকে সংগৃহীত এবং ইসলামিক ফাউন্ডেশন বাংলাদেশের অফিসিয়াল সময়সূচির সাথে সামান্য পার্থক্য থাকতে পারে।",
+  },
+  ifbDownloadNote: {
+    en: "Want the official Islamic Foundation Bangladesh schedule?",
+    bn: "ইসলামিক ফাউন্ডেশন বাংলাদেশের অফিসিয়াল সময়সূচি চান?",
+  },
+  ifbDownloadBtn: {
+    en: "Download IFB Schedule (PDF)",
+    bn: "আইএফবি সময়সূচি ডাউনলোড করুন (PDF)",
+  },
+
   // Date Picker
   today: { en: "Today", bn: "আজ" },
 

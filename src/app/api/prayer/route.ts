@@ -35,7 +35,7 @@ export async function GET(request: NextRequest) {
 
     const today =
       date || new Date().toLocaleDateString("en-GB").replace(/\//g, "-");
-    const calcMethod = method ? parseInt(method, 10) : 2;
+    const calcMethod = method ? parseInt(method, 10) : 16;
 
     const data = await fetchPrayerTimes(lat, lng, today, calcMethod);
 
