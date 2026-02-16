@@ -22,7 +22,7 @@ It automatically detects your location, fetches prayer times, and displays a cou
 
 ## 🛠 Tech Stack
 
-- Next.js 14 (App Router)
+- Next.js 
 - TypeScript
 - Tailwind CSS
 - Aladhan Prayer Times API
