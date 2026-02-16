@@ -41,7 +41,7 @@ export async function fetchPrayerTimes(
   latitude: number,
   longitude: number,
   date: string,
-  method: number = 16,
+  method: number = 2,
 ): Promise<PrayerApiResponse> {
   const cacheKey = getCacheKey(latitude, longitude, date, method);
 

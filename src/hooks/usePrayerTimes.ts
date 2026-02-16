@@ -105,7 +105,7 @@ export function usePrayerTimes(): UsePrayerTimesResult {
   const [location, setLocation] = useState<LocationCoords | null>(null);
   const [error, setError] = useState<AppError | null>(null);
   const [loading, setLoading] = useState(true);
-  const [method, setMethod] = useState(16);
+  const [method, setMethod] = useState(2);
   const [selectedDate, setSelectedDate] = useState(getTodayStr());
   const abortRef = useRef<AbortController | null>(null);
   const locationRef = useRef<LocationCoords | null>(null);
