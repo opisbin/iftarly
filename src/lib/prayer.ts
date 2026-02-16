@@ -166,7 +166,7 @@ export async function fetchPrayerTimes(
   if (method === IFB_METHOD_ID) {
     result.meta.method = {
       id: IFB_METHOD_ID,
-      name: "Dhaka, Bangladesh",
+      name: "Bangladesh",
     };
   }
 

@@ -66,6 +66,6 @@ export const CALCULATION_METHODS: Record<number, string> = {
   13: "Diyanet İşleri Başkanlığı, Turkey",
   14: "Spiritual Administration of Muslims of Russia",
   15: "Moonsighting Committee Worldwide",
-  16: "Dhaka, Bangladesh",
+  16: "Bangladesh",
   99: "Custom",
 };
