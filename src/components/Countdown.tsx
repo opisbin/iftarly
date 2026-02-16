@@ -152,7 +152,7 @@ function TimeBlock({
     <div className="flex flex-col items-center">
       <div
         className={cn(
-          "w-[4.5rem] h-[4rem] flex items-center justify-center rounded-xl border transition-all duration-300",
+          "w-18 h-16 flex items-center justify-center rounded-xl border transition-all duration-300",
           urgent
             ? "border-primary/50 bg-primary/10 shadow-[0_0_16px_-4px] shadow-primary/20 animate-countdown"
             : "border-border bg-secondary/60",

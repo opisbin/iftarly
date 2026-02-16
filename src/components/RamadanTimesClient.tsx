@@ -70,7 +70,7 @@ export default function RamadanTimesClient() {
             className="drop-shadow-[0_0_12px_rgba(212,168,67,0.35)]"
             priority
           />
-          <h1 className="text-3xl sm:text-4xl font-bold tracking-tight bg-gradient-to-r from-gold-bright via-gold to-gold-dim bg-clip-text text-transparent">
+          <h1 className="text-3xl sm:text-4xl font-bold tracking-tight bg-linear-to-r from-gold-bright via-gold to-gold-dim bg-clip-text text-transparent">
             Iftarly.app
           </h1>
         </div>
