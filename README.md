@@ -1,36 +1,161 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌙 Iftarly
 
-## Getting Started
+**Iftarly** is a location-based Ramadan web application that shows accurate **Sahoor end time (Fajr)** and **Iftar time (Maghrib)** based on the user's current location.
 
-First, run the development server:
+It automatically detects your location, fetches prayer times, and displays a countdown to Iftar in a clean, modern interface.
+
+---
+
+## ✨ Features
+
+- 📍 Automatic geolocation detection
+- 🕌 Accurate Fajr and Maghrib times
+- 🌙 Hijri date display
+- ⏳ Live countdown to Iftar
+- 🌍 Works globally
+- 🌑 Dark modern UI
+- ⚡ Fast and lightweight
+- 🔄 API caching support
+- 🛡 Proper error handling
+
+---
+
+## 🛠 Tech Stack
+
+- Next.js 14 (App Router)
+- TypeScript
+- Tailwind CSS
+- Aladhan Prayer Times API
+- Day.js
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/your-username/iftarly.git
+cd iftarly
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Run development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+App runs at:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 📂 Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+/app
+  page.tsx
+  /api/prayer/route.ts
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+/components
+  Countdown.tsx
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+/lib
+  prayer.ts
+```
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🌍 How It Works
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Browser requests location permission.
+2. Latitude and longitude are retrieved.
+3. Server route calls Aladhan Prayer Times API.
+4. Fajr is shown as **Sahoor Ends**.
+5. Maghrib is shown as **Iftar Time**.
+6. Countdown updates every second.
+
+---
+
+## 🔐 API Endpoint
+
+Prayer times are fetched server-side to avoid exposing the third-party API directly to the client.
+
+Endpoint:
+
+```
+/api/prayer
+```
+
+Query parameters:
+
+```
+lat
+lng
+date
+```
+
+---
+
+## ⚙ Configuration
+
+You can change the prayer calculation method by modifying:
+
+```
+method=2
+```
+
+Common methods:
+
+- 1: University of Islamic Sciences, Karachi
+- 2: Islamic Society of North America
+- 3: Muslim World League
+
+---
+
+## 🧠 Future Improvements
+
+- PWA support
+- 30-day Ramadan calendar view
+- Multiple language support
+- Calculation method selector
+- Push notifications before Iftar
+- User preferences storage
+
+---
+
+## 📦 Deployment
+
+Recommended platforms:
+
+- Vercel
+- Netlify
+- Self-hosted Node server
+
+---
+
+## 📜 License
+
+MIT License
+
+---
+
+## 🤝 Contributing
+
+Pull requests are welcome.  
+Open an issue first for major changes.
+
+---
+
+## 🌙 About Iftarly
+
+Iftarly simplifies fasting by providing accurate, location-aware prayer timings in a distraction-free interface.
